@@ -15,10 +15,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev":"npx tailwindcss -i ./src/styles/tailwind.css -o ./dist/css/tailwind.css ",
+    "prod":"cross-env NODE_ENV=production npx tailwindcss -i ./src/styles/tailwind.css -o ./dist/tailwindcss",
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run watch:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:css": "postcss src/styles/tailwind.css -o src/styles/output.css"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +42,9 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
     "tailwindcss": "^3.0.18"
   }
 }
