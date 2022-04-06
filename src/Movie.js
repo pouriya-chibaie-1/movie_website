@@ -15,13 +15,15 @@ setLoading(false)
 if (isLoading){
   return <Spinner/>
 }
+console.log(state.images)
   return (
     <>
     <div className="w-full h-screen mx-auto bg-slate-700 ">
       <div className="w-4/5 h-2/4 flex flex-auto">
-         {state.images.map((item , i)=>{
+         {state.images!=undefined
+?state.images.map((item , i)=>{
         return <img src={item} key={i} className="w-1/3"/>
-        })}
+        }):""}
       </div>
       <h1>{state.title}</h1>
       <h1>{state.year}</h1>
