@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 // import "./font/font.css";
@@ -51,7 +51,7 @@ const Register = () => {
               navigate(`/login`);
             }, 4000);
         }
-        console.log(res);
+       
       })
       .catch((err) => {
         toast.error('مشکلی پیش امده است', {
@@ -71,13 +71,9 @@ const Register = () => {
   const [emailUser, setEmailUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
   const [username, setUsername] = useState("");
-
   return (
     <>
-   
-
-    
-      <div style={divContainer}>
+        <div style={divContainer}>
         <div style={LoginBox}>
           <h1 style={titleForm}>Register</h1>
           <div style={{ width: "80%" }}>
@@ -112,9 +108,9 @@ const Register = () => {
           <button style={buttonFormStyle} onClick={submitForm}>
             REGISTER
           </button>
-          <h4 onClick={pushToLogin} style={pushToLogOrReg}>
+          <Link to={`/login`} style={pushToLogOrReg}>
             if you member login now
-          </h4>
+          </Link>
         </div>
 
 {/* Same as */}

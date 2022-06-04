@@ -6,6 +6,7 @@ import Spinner from "./Components/Spinner/Spinner";
 import SearchComponent from "./Components/Search/SearchComponent";
 import context from "./Context/Auth";
 import Header from "./Components/Header/Header";
+import Login from "./Components/Login/Login";
 function App() {
   const [data, setData] = useState([]);
   const [pageNo, setPageNo] = useState(1);
@@ -34,8 +35,6 @@ function App() {
     }
   }
   const firstEvent = (e) => {
-    context1.tokenLogin.scrollTop1(e.target.scrollTop)
-    console.log(e.target.scrollTop);
     if (pageNo === 1) {
       let pg = pageNo + 1;
       setPageNo(pg);
@@ -51,12 +50,12 @@ function App() {
       getData();
     }
   };
-  // if (isLoading) {
-  //   return <Spinner />;
-  // }
-  const context1 = useContext(context);
-  console.log(context1.tokenLogin.scorllTopPosition)
- 
+
+console.log("2342423", document.cookie)
+if (document.cookie=="" ||document.cookie== null){
+
+  return <Login/>
+ }
   return (
     <>
       <div
@@ -77,7 +76,7 @@ function App() {
             overflow: "auto",
             backgroundColor: "hsla(0, 0%, 0%, 0)",
           }}
-          className="MainDiv grid gap-4 grid-cols-3 grid-rows-none mobile:grid-cols-1 mobile:grid-rows-none tablet:grid-cols-2 tablet:grid-rows-none mindesk:grid-cols-3 mindesk:grid-rows-none normaldesk:grid-cols-4 normaldesk:grid-rows-none 2xl:grid-cols-4   2xl:grid-rows-none"
+          className="MainDiv grid gap-4 grid-cols-3 grid-rows-none mobile:grid-cols-1 mobile:grid-rows-none tablet:grid-cols-2 tablet:grid-rows-none mindesk:grid-cols-3 mindesk:grid-rows-none normaldesk:grid-cols-4 normaldesk:grid-rows-none 2xl:grid-cols-4 normaldesk:grid-cols-4  2xl:grid-rows-none largedesk:grid-cols-4"
         >
           {data.map((data, i) => (
             <Movies data={data} key={i} />

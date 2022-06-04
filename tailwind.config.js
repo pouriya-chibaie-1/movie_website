@@ -15,13 +15,13 @@ module.exports = {
         'normaldesk': {'max': '1279px'},
         // => @media (max-width: 1279px) { ... }
   
-        'mindesk': {'max': '1023px'},
+        'mindesk': {'max': '1200px'},
         // => @media (max-width: 1023px) { ... }
   
-        'tablet': {'max': '768px'},
+        'tablet': {'max': '900px'},
         // => @media (max-width: 767px) { ... }
   
-        'mobile': {'max': '500px'},
+        'mobile': {'max': '600px'},
         // => @media (max-width: 639px) { ... }
       }
   },

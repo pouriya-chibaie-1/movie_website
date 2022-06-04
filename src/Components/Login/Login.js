@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "../../font/font.css";
@@ -35,24 +35,27 @@ const Login = () => {
         }
       )
       .then((res) => {
-
+        
         if(res.status===200){
           setToken(res.data.token)
-          // console.log(res);
-toast.success('با موفقیت وارد شدید')
-setTimeout(() => {
-  // navigate(`/`)
-}, 3000);
+          document.cookie = `token=${res.data.token};max-age=3600;path=/;`;
+
+          toast.success('با موفقیت وارد شدید')
+          setTimeout(() => {
+            navigate(`/`)
+            window.location.reload();
+          }, 3000);
+          
         }
       })
       .catch((error) => {
         toast.error('مشکلی پیش امده')
       });
-  };
-  useEffect(() => {
-    console.log("email = ", email);
-    console.log("password = ", password);
-  }, [email, password]);
+    };
+    useEffect(() => {
+      
+    }, [email, password]);
+
   return (
     <>
       <div style={divContainer}>
@@ -78,7 +81,7 @@ setTimeout(() => {
               }}
               style={inputStyle}
             ></input>
-            <button onClick={()=>{console.log(token)}}>click</button>
+          
           </div>
           <div style={checkDivStyle}>
             <input

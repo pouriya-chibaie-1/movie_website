@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 // import Spinner from "../Spinner/Spinner";
 import {LazyLoadImage} from 'react-lazy-load-image-component'
+import Login from "../Login/Login";
 const Movie = () => {
   const [progress, setProgress] = useState(0)
   const [isLoading, setLoading] = useState(true);
@@ -19,7 +20,12 @@ setLoading(false)
 // if (isLoading){
 //   return <Spinner/>
 // }
+setTimeout(() => {
+}, 5000);
+if (sessionStorage.getItem("Token")=="" ||sessionStorage.getItem("Token")== null){
 
+  return <Login/>
+ }
 return (
     <>
     <LoadingBar color="#f11946" height="4px" progress={progress} onLoaderFinished={() => setProgress(0)} />

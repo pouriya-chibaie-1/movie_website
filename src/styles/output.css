@@ -508,6 +508,12 @@ overflow-y: auto;
     grid-template-rows: none;
   }
 }
+@media (max-width: 1535px) {
+
+  .largedesk\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 @media (max-width: 1279px) {
 
   .normaldesk\:grid-cols-4 {
@@ -518,7 +524,7 @@ overflow-y: auto;
     grid-template-rows: none;
   }
 }
-@media (max-width: 1023px) {
+@media (max-width: 1200px) {
 
   .mindesk\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -528,7 +534,7 @@ overflow-y: auto;
     grid-template-rows: none;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .tablet\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -538,7 +544,7 @@ overflow-y: auto;
     grid-template-rows: none;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
   .mobile\:h-full {
     height: 100%;
